@@ -17,7 +17,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_GRV,  KC_LCBR, KC_RCBR, KC_VOLD, KC_VOLU, KC_MUTE,                     KC_PSCR, KC_END,  KC_HOME, KC_LBRC, KC_RBRC, KC_INS,
       KC_TRNS, KC_LPRN, KC_RPRN, KC_MPRV, KC_MNXT, KC_MPLY,                     KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_NO,   RESET,
       KC_TRNS, KC_LT,   KC_GT,   KC_NO,   KC_NO,   KC_LCBR, KC_F11,    KC_F12,  KC_RCBR, KC_PGDN, KC_PGUP, KC_NO,   KC_NO,   KC_TRNS,
-                                          KC_TRNS, KC_TRNS, KC_CENT,   KC_TRNS, KC_TRNS, DF(2)
+                                          KC_TRNS, KC_TRNS, KC_CENT,   KC_PSCR, KC_TRNS, DF(2)
     ),
     // Mac layout
 	[2] = LAYOUT(
@@ -32,7 +32,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_GRV,  KC_LCBR, KC_RCBR, KC_VOLD, KC_VOLU, KC_MUTE,                     KC_PSCR, KC_END,  KC_HOME, KC_LBRC, KC_RBRC, KC_INS,
       KC_TRNS, KC_LPRN, KC_RPRN, KC_MPRV, KC_MNXT, KC_MPLY,                     KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_NO,   RESET,
       KC_TRNS, KC_LT,   KC_GT,   KC_NO,   KC_NO,   KC_LCBR, KC_F11,    KC_F12,  KC_RCBR, KC_PGDN, KC_PGUP, KC_NO,   KC_NO,   KC_TRNS,
-                                          KC_TRNS, KC_TRNS, KC_CENT,   KC_TRNS, KC_TRNS, DF(0)
+                                          KC_TRNS, KC_TRNS, KC_CENT,   KC_PSCR, KC_TRNS, DF(0)
     ),
 
 };
