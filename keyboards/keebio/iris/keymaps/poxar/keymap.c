@@ -47,9 +47,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return true;
         case DF(2):
             if (record->event.pressed) {
+                rgblight_sethsv_noeeprom(0, 100, 100);
                 rgblight_enable_noeeprom();
-                // rgblight_sethsv_noeeprom(36, 255, 100);
-                rgblight_sethsv_noeeprom(0, 40, 60);
             }
             return true;
         default:
