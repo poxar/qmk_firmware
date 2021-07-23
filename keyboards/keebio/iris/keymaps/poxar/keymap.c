@@ -1,52 +1,59 @@
 #include QMK_KEYBOARD_H
+#include "poxar.h"
 
-#define ENT_LWR LT(2, KC_ENT)
-#define ENT_GMG LT(4, KC_ENT)
-#define SPC_RSE LT(1, KC_SPC)
+#define LAYOUT_iris_wrapper(...) LAYOUT(__VA_ARGS__)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-	[0] = LAYOUT(
-      KC_GESC, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                             KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
-      KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                             KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS,
-      KC_LGUI, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                             KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
-      KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_MINS,         KC_EQL, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
-                                          KC_LALT, KC_LCTL, ENT_LWR,        SPC_RSE, KC_RCTL, KC_RALT
-    ),
-	[1] = LAYOUT(
-      KC_GRV,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                            KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_BSPC,
-      KC_GESC, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                             KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSLS,
-      KC_TRNS, KC_NO,   KC_NO,   KC_VOLD, KC_VOLU, KC_MUTE,                          KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT,KC_NO,   KC_INS,
-      KC_TRNS, KC_NO,   KC_NO,   KC_MPRV, KC_MNXT, KC_MPLY, KC_F11,          KC_F12, KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_NO,   RESET,
-                                          KC_TRNS, KC_TRNS, KC_NO,            KC_NO, KC_TRNS, DF(3)
-    ),
-    [2] = LAYOUT(
-      KC_GRV,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                            KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_BSPC,
-      KC_GESC, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                          KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_NO,
-      KC_TRNS, KC_NO,   KC_NO,   KC_LPRN, KC_RPRN, KC_NO,                            KC_BSLS, KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_GRV,
-      KC_TRNS, KC_NO,   KC_NO,   KC_LCBR, KC_RCBR, KC_NO,   KC_NO,            KC_NO, KC_PIPE, KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_TILD,
-                                          KC_TRNS, KC_TRNS, KC_NO,            KC_NO, KC_TRNS, DF(3)
-    ),
-    // GAMING layer
-	[3] = LAYOUT(
-      KC_GESC, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                             KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
-      KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                             KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS,
-      KC_LGUI, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                             KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
-      KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_MINS,        KC_EQL,  KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
-                                          KC_LALT, KC_LCTL, KC_SPC,        ENT_GMG,  KC_RCTL, KC_RALT
-    ),
-	[4] = LAYOUT(
-      KC_GRV,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                            KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_DEL,
-      KC_GESC, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                             KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSLS,
-      KC_TRNS, KC_NO,   KC_NO,   KC_VOLD, KC_VOLU, KC_MUTE,                          KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_NO,   KC_INS,
-      KC_TRNS, KC_LT,   KC_GT,   KC_MPRV, KC_MNXT, KC_MPLY,  KC_F11,         KC_F12, KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_NO,   KC_NO,
-                                          KC_TRNS, KC_TRNS, KC_TRNS,          KC_NO, KC_TRNS, DF(0)
-    ),
+  [0] = LAYOUT_iris_wrapper(
+    DEFAULT_0,
+    DEFAULT_1,
+    DEFAULT_2,
+    DEFAULT_3_LFT, KC_MINS, KC_EQL, DEFAULT_3_RGT,
+    DEFAULT_4
+  ),
+  [1] = LAYOUT_iris_wrapper(
+    RAISE_0,
+    RAISE_1,
+    RAISE_2,
+    RAISE_3_LFT, KC_F11, KC_F12, RAISE_3_RGT,
+    RAISE_4
+  ),
+  [2] = LAYOUT_iris_wrapper(
+    LOWER_0,
+    LOWER_1,
+    LOWER_2,
+    LOWER_3_LFT, XXXXXXX, XXXXXXX, LOWER_3_RGT,
+    LOWER_4
+  ),
+  [2] = LAYOUT_iris_wrapper(
+    ADJUST_0,
+    ADJUST_1,
+    ADJUST_2,
+    ADJUST_3_LFT, XXXXXXX, XXXXXXX, ADJUST_3_RGT,
+    ADJUST_4
+  ),
+  // GAMING layer
+  [4] = LAYOUT_iris_wrapper(
+    GAMING_0,
+    GAMING_1,
+    GAMING_2,
+    GAMING_3_LFT, KC_MINS, KC_EQL, GAMING_3_RGT,
+    GAMING_4
+  ),
+  [5] = LAYOUT_iris_wrapper(
+    GRAISE_0,
+    GRAISE_1,
+    GRAISE_2,
+    GRAISE_3_LFT, KC_F11, KC_F12, GRAISE_3_RGT,
+    GRAISE_4
+  ),
 
 };
 
 const rgblight_segment_t PROGMEM default_layer[] = RGBLIGHT_LAYER_SEGMENTS({0, 12, HSV_OFF});
 const rgblight_segment_t PROGMEM raise_layer[] = RGBLIGHT_LAYER_SEGMENTS({0, 12, HSV_PURPLE});
 const rgblight_segment_t PROGMEM lower_layer[] = RGBLIGHT_LAYER_SEGMENTS({0, 12, HSV_ORANGE});
+const rgblight_segment_t PROGMEM adjust_layer[] = RGBLIGHT_LAYER_SEGMENTS({0, 12, HSV_YELLOW});
 const rgblight_segment_t PROGMEM gaming_layer[] = RGBLIGHT_LAYER_SEGMENTS({0, 12, HSV_RED});
 const rgblight_segment_t PROGMEM gaming_raise_layer[] = RGBLIGHT_LAYER_SEGMENTS({0, 12, HSV_GREEN});
 
@@ -54,6 +61,7 @@ const rgblight_segment_t* const PROGMEM rgb_layers[] = RGBLIGHT_LAYERS_LIST(
     default_layer,
     raise_layer,
     lower_layer,
+    adjust_layer,
     gaming_layer,
     gaming_raise_layer
 );
@@ -73,5 +81,6 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     rgblight_set_layer_state(2, layer_state_cmp(state, 2));
     rgblight_set_layer_state(3, layer_state_cmp(state, 3));
     rgblight_set_layer_state(4, layer_state_cmp(state, 4));
+    rgblight_set_layer_state(5, layer_state_cmp(state, 5));
     return state;
 }
