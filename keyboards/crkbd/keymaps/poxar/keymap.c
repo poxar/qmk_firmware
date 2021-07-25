@@ -87,6 +87,7 @@ void oled_render_layer_state(void) {
             oled_write_ln_P(PSTR("                   "), false);
             break;
         case L_GRAISE:
+        case L_GRAISE|L_GAMING:
             oled_write_ln_P(PSTR("    G A M I N G    "), false);
             oled_write_ln_P(PSTR("     R A I S E     "), false);
             oled_write_ln_P(PSTR("                   "), false);
