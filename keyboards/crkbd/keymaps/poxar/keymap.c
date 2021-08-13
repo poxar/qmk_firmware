@@ -1,7 +1,7 @@
 /*
-Copyright 2021 Philipp Millar <@poxar>
 Copyright 2019 @foostan
 Copyright 2020 Drashna Jaelre <@drashna>
+Copyright 2021 Philipp Millar <@poxar>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -24,12 +24,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define LAYOUT_crkbd_wrapper(...) LAYOUT_split_3x6_3(__VA_ARGS__)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [0] = LAYOUT_crkbd_wrapper(DEFAULT_1, DEFAULT_2, DEFAULT_3, DEFAULT_4),
-  [1] = LAYOUT_crkbd_wrapper(RAISE_1,   RAISE_2,   RAISE_3,   RAISE_4),
-  [2] = LAYOUT_crkbd_wrapper(LOWER_1,   LOWER_2,   LOWER_3,   LOWER_4),
-  [3] = LAYOUT_crkbd_wrapper(ADJUST_1,  ADJUST_2,  ADJUST_3,  ADJUST_4),
-  [4] = LAYOUT_crkbd_wrapper(GAMING_1,  GAMING_2,  GAMING_3,  GAMING_4),
-  [5] = LAYOUT_crkbd_wrapper(GRAISE_1,  GRAISE_2,  GRAISE_3,  GRAISE_4),
+  [0] = LAYOUT_crkbd_wrapper(DEFAULT_1, KC_BSPC, DEFAULT_2, DEFAULT_3, DEFAULT_4),
+  [1] = LAYOUT_crkbd_wrapper(RAISE_1,   KC_DEL,  RAISE_2,   RAISE_3,   RAISE_4),
+  [2] = LAYOUT_crkbd_wrapper(LOWER_1,            LOWER_2,   LOWER_3,   LOWER_4),
+  [3] = LAYOUT_crkbd_wrapper(ADJUST_1,           ADJUST_2,  ADJUST_3,  ADJUST_4),
+  [4] = LAYOUT_crkbd_wrapper(GAMING_1,  KC_BSPC, GAMING_2,  GAMING_3,  GAMING_4),
+  [5] = LAYOUT_crkbd_wrapper(GRAISE_1,  KC_DEL,  GRAISE_2,  GRAISE_3,  GRAISE_4),
 };
 
 #ifdef OLED_DRIVER_ENABLE

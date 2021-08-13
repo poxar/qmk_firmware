@@ -6,14 +6,14 @@
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_iris_wrapper(
     DEFAULT_0,
-    DEFAULT_1,
+    DEFAULT_1, KC_BSLS,
     DEFAULT_2,
     DEFAULT_3_LFT, KC_MINS, KC_EQL, DEFAULT_3_RGT,
     DEFAULT_4
   ),
   [1] = LAYOUT_iris_wrapper(
     RAISE_0,
-    RAISE_1,
+    RAISE_1, XXXXXXX,
     RAISE_2,
     RAISE_3_LFT, KC_F11, KC_F12, RAISE_3_RGT,
     RAISE_4
@@ -35,14 +35,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // GAMING layer
   [4] = LAYOUT_iris_wrapper(
     GAMING_0,
-    GAMING_1,
+    GAMING_1, KC_BSLS,
     GAMING_2,
     GAMING_3_LFT, KC_MINS, KC_EQL, GAMING_3_RGT,
     GAMING_4
   ),
   [5] = LAYOUT_iris_wrapper(
     GRAISE_0,
-    GRAISE_1,
+    GRAISE_1, KC_BSLS,
     GRAISE_2,
     GRAISE_3_LFT, KC_F11, KC_F12, GRAISE_3_RGT,
     GRAISE_4

@@ -18,7 +18,7 @@
 #define DEFAULT_4_LFT                            KC_LALT, KC_LCTL, ENT_LWR
 
 #define DEFAULT_0_RGT KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC
-#define DEFAULT_1_RGT KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC
+#define DEFAULT_1_RGT KC_Y,    KC_U,    KC_I,    KC_O,    KC_P
 #define DEFAULT_2_RGT KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT
 #define DEFAULT_3_RGT KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT
 #define DEFAULT_4_RGT SPC_RSE, KC_RCTL, KC_RALT
@@ -37,8 +37,8 @@
 #define RAISE_3_LFT KC_LSFT, XXXXXXX, XXXXXXX, KC_MPRV, KC_MNXT, KC_MPLY
 #define RAISE_4_LFT                            KC_LALT, KC_LCTL, MO(3)
 
-#define RAISE_0_RGT KC_F6,   KC_F7,   KC_F8,   KC_F9,    KC_F10,  KC_BSPC
-#define RAISE_1_RGT KC_6,    KC_7,    KC_8,    KC_9,     KC_0,    KC_DEL
+#define RAISE_0_RGT KC_F6,   KC_F7,   KC_F8,   KC_F9,    KC_F10,  KC_DEL
+#define RAISE_1_RGT KC_6,    KC_7,    KC_8,    KC_9,     KC_0
 #define RAISE_2_RGT KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, XXXXXXX, KC_INS
 #define RAISE_3_RGT KC_HOME, KC_PGDN, KC_PGUP, KC_END,   XXXXXXX, XXXXXXX
 #define RAISE_4_RGT _______, KC_RCTL, TG(4)
@@ -52,12 +52,12 @@
 // lower layer
 
 #define LOWER_0_LFT KC_GRV,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5
-#define LOWER_1_LFT KC_GESC, KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC
+#define LOWER_1_LFT KC_GESC, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC
 #define LOWER_2_LFT OSM_GUI, XXXXXXX, XXXXXXX, KC_LPRN, KC_RPRN, XXXXXXX
 #define LOWER_3_LFT KC_LSFT, XXXXXXX, XXXXXXX, KC_LCBR, KC_RCBR, XXXXXXX
 #define LOWER_4_LFT                            KC_LALT, KC_LCTL, _______
 
-#define LOWER_0_RGT KC_F6,   KC_F7,   KC_F8,   KC_F9,    KC_F10,  KC_BSPC
+#define LOWER_0_RGT KC_F6,   KC_F7,   KC_F8,   KC_F9,    KC_F10, KC_BSPC
 #define LOWER_1_RGT KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, XXXXXXX
 #define LOWER_2_RGT KC_BSLS, KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_GRV
 #define LOWER_3_RGT KC_PIPE, KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_TILD
@@ -77,8 +77,8 @@
 #define ADJUST_3_LFT RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD, XXXXXXX, XXXXXXX
 #define ADJUST_4_LFT                            KC_LALT, KC_LCTL, _______
 
-#define ADJUST_0_RGT KC_F6,   KC_F7,   KC_F8,   KC_F9,    KC_F10,  KC_BSPC
-#define ADJUST_1_RGT KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,  KC_F12
+#define ADJUST_0_RGT KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_BSPC
+#define ADJUST_1_RGT KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12
 #define ADJUST_2_RGT XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
 #define ADJUST_3_RGT XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RESET
 #define ADJUST_4_RGT _______, KC_RCTL, KC_RALT
@@ -98,7 +98,7 @@
 #define GAMING_4_LFT                            KC_LALT, KC_LCTL, KC_SPC
 
 #define GAMING_0_RGT KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC
-#define GAMING_1_RGT KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS
+#define GAMING_1_RGT KC_Y,    KC_U,    KC_I,    KC_O,    KC_P
 #define GAMING_2_RGT KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT
 #define GAMING_3_RGT KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT
 #define GAMING_4_RGT ENT_GMG, KC_RCTL, KC_RALT
@@ -118,7 +118,7 @@
 #define GRAISE_4_LFT                            _______, _______, _______
 
 #define GRAISE_0_RGT KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_DEL
-#define GRAISE_1_RGT KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSLS
+#define GRAISE_1_RGT KC_6,    KC_7,    KC_8,    KC_9,    KC_0
 #define GRAISE_2_RGT KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX, KC_INS
 #define GRAISE_3_RGT KC_HOME, KC_PGDN, KC_PGUP, KC_END,  XXXXXXX, XXXXXXX
 #define GRAISE_4_RGT XXXXXXX, _______, TG(4)
