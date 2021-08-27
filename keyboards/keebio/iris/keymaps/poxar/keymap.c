@@ -8,7 +8,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     DEFAULT_0,
     DEFAULT_1, KC_BSLS,
     DEFAULT_2,
-    DEFAULT_3_LFT, KC_MINS, KC_EQL, DEFAULT_3_RGT,
+    DEFAULT_3_LFT, KC_LBRC, KC_RBRC, DEFAULT_3_RGT,
     DEFAULT_4
   ),
   [1] = LAYOUT_iris_wrapper(
@@ -22,32 +22,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     LOWER_0,
     LOWER_1,
     LOWER_2,
-    LOWER_3_LFT, XXXXXXX, XXXXXXX, LOWER_3_RGT,
+    LOWER_3_LFT, KC_F11, KC_F12, LOWER_3_RGT,
     LOWER_4
   ),
   [3] = LAYOUT_iris_wrapper(
     ADJUST_0,
     ADJUST_1,
     ADJUST_2,
-    ADJUST_3_LFT, XXXXXXX, XXXXXXX, ADJUST_3_RGT,
+    ADJUST_3_LFT, KC_F11, KC_F12, ADJUST_3_RGT,
     ADJUST_4
   ),
-  // GAMING layer
   [4] = LAYOUT_iris_wrapper(
     GAMING_0,
     GAMING_1, KC_BSLS,
     GAMING_2,
-    GAMING_3_LFT, KC_MINS, KC_EQL, GAMING_3_RGT,
+    GAMING_3_LFT, KC_LBRC, KC_RBRC, GAMING_3_RGT,
     GAMING_4
   ),
-  [5] = LAYOUT_iris_wrapper(
-    GRAISE_0,
-    GRAISE_1, KC_BSLS,
-    GRAISE_2,
-    GRAISE_3_LFT, KC_F11, KC_F12, GRAISE_3_RGT,
-    GRAISE_4
-  ),
-
 };
 
 const rgblight_segment_t PROGMEM default_layer[] = RGBLIGHT_LAYER_SEGMENTS({0, 12, HSV_OFF});

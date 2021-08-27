@@ -29,7 +29,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [2] = LAYOUT_crkbd_wrapper(LOWER_1,            LOWER_2,   LOWER_3,   LOWER_4),
   [3] = LAYOUT_crkbd_wrapper(ADJUST_1,           ADJUST_2,  ADJUST_3,  ADJUST_4),
   [4] = LAYOUT_crkbd_wrapper(GAMING_1,  KC_BSPC, GAMING_2,  GAMING_3,  GAMING_4),
-  [5] = LAYOUT_crkbd_wrapper(GRAISE_1,  KC_DEL,  GRAISE_2,  GRAISE_3,  GRAISE_4),
 };
 
 #ifdef OLED_DRIVER_ENABLE

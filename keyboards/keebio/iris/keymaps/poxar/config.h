@@ -1,5 +1,11 @@
 #pragma once
 
+#define TAPPING_TERM 180
+#define IGNORE_MOD_TAP_INTERRUPT
+
+#define ONESHOT_TAP_TOGGLE 3
+#define ONESHOT_TIMEOUT 5000
+
 #define USE_SERIAL
 #define EE_HANDS
 
