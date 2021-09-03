@@ -11,6 +11,7 @@
 #define GMG 4 // gaming layer, swaps space/enter and deactivates home row mods
 
 // Left-hand home row mods
+#define SFT_A LSFT_T(KC_A)
 #define GUI_S LGUI_T(KC_S)
 #define ALT_D LALT_T(KC_D)
 #define CTL_F LCTL_T(KC_F)
@@ -19,6 +20,7 @@
 #define CTL_J RCTL_T(KC_J)
 #define ALT_K LALT_T(KC_K)
 #define GUI_L RGUI_T(KC_L)
+#define SFT_SCL RSFT_T(KC_SCLN)
 
 // Thumb cluster one shot keys
 #define OS_LSFT OSM(MOD_LSFT)
@@ -27,14 +29,14 @@
 // default layer
 
 #define DEFAULT_0_LFT KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5
-#define DEFAULT_1_LFT KC_GESC, KC_Q,    KC_W,    KC_E,    KC_R,    KC_T
-#define DEFAULT_2_LFT KC_TAB,  KC_A,    GUI_S,   ALT_D,   CTL_F,   KC_G
+#define DEFAULT_1_LFT KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T
+#define DEFAULT_2_LFT KC_GESC, SFT_A,   GUI_S,   ALT_D,   CTL_F,   KC_G
 #define DEFAULT_3_LFT KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B
 #define DEFAULT_4_LFT                            OS_LSFT, MO(LWR), KC_ENT
 
 #define DEFAULT_0_RGT KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC
 #define DEFAULT_1_RGT KC_Y,    KC_U,    KC_I,    KC_O,    KC_P     //either BSLS or BSPC
-#define DEFAULT_2_RGT KC_H,    CTL_J,   ALT_K,   GUI_L,   KC_SCLN, KC_QUOT
+#define DEFAULT_2_RGT KC_H,    CTL_J,   ALT_K,   GUI_L,   SFT_SCL, KC_QUOT
 #define DEFAULT_3_RGT KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT
 #define DEFAULT_4_RGT KC_SPC,  MO(RSE), OS_RALT
 
@@ -48,7 +50,7 @@
 
 #define RAISE_0_LFT _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5
 #define RAISE_1_LFT _______, KC_1,    KC_2,    KC_3,    KC_4,    KC_5
-#define RAISE_2_LFT _______, XXXXXXX, KC_LGUI, KC_LALT, KC_LCTL, KC_MUTE
+#define RAISE_2_LFT _______, KC_LSFT, KC_LGUI, KC_LALT, KC_LCTL, KC_MUTE
 #define RAISE_3_LFT _______, KC_MPRV, KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY
 #define RAISE_4_LFT                            _______, MO(ADJ), _______
 
@@ -68,7 +70,7 @@
 
 #define LOWER_0_LFT _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5
 #define LOWER_1_LFT _______, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC
-#define LOWER_2_LFT _______, XXXXXXX, KC_LGUI, KC_LALT, KC_LCTL, XXXXXXX
+#define LOWER_2_LFT _______, KC_LSFT, KC_LGUI, KC_LALT, KC_LCTL, XXXXXXX
 #define LOWER_3_LFT _______, KC_LCBR, KC_RCBR, KC_LPRN, KC_RPRN, XXXXXXX
 #define LOWER_4_LFT                            _______, _______, _______
 
