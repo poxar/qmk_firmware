@@ -21,11 +21,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
-#define TAPPING_TERM 180
-#define IGNORE_MOD_TAP_INTERRUPT
-
-#define ONESHOT_TAP_TOGGLE 3
-#define ONESHOT_TIMEOUT 5000
+#define TAPPING_TERM 150
+#define TAPPING_TERM_PER_KEY
+#define TAPPING_FORCE_HOLD_PER_KEY
 
 #define USE_SERIAL_PD2
 #define EE_HANDS

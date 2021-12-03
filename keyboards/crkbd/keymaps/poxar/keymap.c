@@ -39,15 +39,6 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
   return rotation;
 }
 
-void oneshot_mods_changed_user(uint8_t mods) {
-    if (mods && MOD_MASK_GUI) {
-        oled_write_ln_P(PSTR("====== G U I ======"), false);
-    }
-    if (!mods) {
-        oled_write_ln_P(PSTR("                   "), false);
-    }
-}
-
 #define L_BASE 0
 #define L_RAISE 2
 #define L_LOWER 4
