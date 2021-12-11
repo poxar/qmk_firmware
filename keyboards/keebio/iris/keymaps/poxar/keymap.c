@@ -8,35 +8,35 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     DEFAULT_0,
     DEFAULT_1, KC_BSLS,
     DEFAULT_2,
-    DEFAULT_3_LFT, KC_F13, KC_F14, DEFAULT_3_RGT,
+    DEFAULT_3_LFT, KC_F17, KC_F18, DEFAULT_3_RGT,
     DEFAULT_4
   ),
   [1] = LAYOUT_iris_wrapper(
     RAISE_0,
     RAISE_1, XXXXXXX,
     RAISE_2,
-    RAISE_3_LFT, KC_F13, KC_F14, RAISE_3_RGT,
+    RAISE_3_LFT, KC_F17, KC_F18, RAISE_3_RGT,
     RAISE_4
   ),
   [2] = LAYOUT_iris_wrapper(
     LOWER_0,
     LOWER_1,
     LOWER_2,
-    LOWER_3_LFT, KC_F13, KC_F14, LOWER_3_RGT,
+    LOWER_3_LFT, KC_F17, KC_F18, LOWER_3_RGT,
     LOWER_4
   ),
   [3] = LAYOUT_iris_wrapper(
     ADJUST_0,
     ADJUST_1,
     ADJUST_2,
-    ADJUST_3_LFT, KC_F13, KC_F14, ADJUST_3_RGT,
+    ADJUST_3_LFT, KC_F17, KC_F18, ADJUST_3_RGT,
     ADJUST_4
   ),
   [4] = LAYOUT_iris_wrapper(
     GAMING_0,
     GAMING_1, KC_BSLS,
     GAMING_2,
-    GAMING_3_LFT, KC_F13, KC_F14, GAMING_3_RGT,
+    GAMING_3_LFT, KC_F17, KC_F18, GAMING_3_RGT,
     GAMING_4
   ),
 };
