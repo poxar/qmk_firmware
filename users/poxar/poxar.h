@@ -55,8 +55,8 @@ enum {
 
 #define LOWER_0_LFT _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5
 #define LOWER_1_LFT _______, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC
-#define LOWER_2_LFT _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
-#define LOWER_3_LFT _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
+#define LOWER_2_LFT _______, XXXXXXX, XXXXXXX, KC_VOLD, KC_VOLU, KC_MUTE
+#define LOWER_3_LFT _______, XXXXXXX, XXXXXXX, KC_MPRV, KC_MNXT, KC_MPLY
 #define LOWER_4_LFT                            _______, _______, _______
 
 #define LOWER_0_RGT KC_F6,   KC_F7,   KC_F8,   KC_F9,    KC_F10, KC_BSPC
