@@ -7,10 +7,11 @@ F_CPU = 8000000
 # Bootloader selection
 BOOTLOADER = caterina
 
+
 # Build Options
 #   change yes to no to disable
 #
-BOOTMAGIC_ENABLE = no       # Enable Bootmagic Lite
+BOOTMAGIC_ENABLE = no       # Virtual DIP switch configuration
 MOUSEKEY_ENABLE = yes       # Mouse keys
 EXTRAKEY_ENABLE = yes       # Audio control and System control
 CONSOLE_ENABLE = no         # Console for debug
@@ -25,6 +26,5 @@ BLUETOOTH_ENABLE = no       # Enable Bluetooth
 AUDIO_ENABLE = no           # Audio output
 
 BLUETOOTH = AdafruitBLE
-OLED_ENABLE = yes
-OLED_DRIVER = SSD1306
+OLED_DRIVER_ENABLE = yes
 ENCODER_ENABLE = yes

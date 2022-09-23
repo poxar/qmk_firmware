@@ -20,6 +20,7 @@
 api_data/v1
 doxygen/
 quantum/version.h
+!quantum/tools/eeprom_reset.hex
 *.bin
 *.eep
 *.hex

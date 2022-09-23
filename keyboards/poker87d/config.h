@@ -19,11 +19,11 @@
 #include "config_common.h"
 
 /* USB Device descriptor parameter */
-#define VENDOR_ID       0x6D66 // "mf" - mfkiiyd
-#define PRODUCT_ID      0x087D // "87D"
+#define VENDOR_ID       0xFEED
+#define PRODUCT_ID      0x6060
 #define DEVICE_VER      0x0001
-#define MANUFACTURER    mfkiiyd
-#define PRODUCT         POKER-87D Hotswap
+#define MANUFACTURER    Hotswap
+#define PRODUCT         POKER-87
 
 /* key matrix size */
 #define MATRIX_ROWS 6

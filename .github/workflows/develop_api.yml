@@ -12,7 +12,7 @@ on:
 jobs:
   api_data:
     runs-on: ubuntu-latest
-    container: qmkfm/qmk_cli
+    container: qmkfm/base_container
 
     # protect against those who work in their fork on develop
     if: github.repository == 'qmk/qmk_firmware'
