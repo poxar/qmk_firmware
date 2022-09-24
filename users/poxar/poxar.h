@@ -7,8 +7,8 @@
 #define GMG 4 // gaming layer, swaps space/enter and deactivates home row mods
 
 enum {
-    TD_CTL,
-    TD_GUI,
+    TD_LFT,
+    TD_RGT,
 };
 
 // default layer
@@ -17,13 +17,13 @@ enum {
 #define DEFAULT_1_LFT KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T
 #define DEFAULT_2_LFT KC_ESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G
 #define DEFAULT_3_LFT KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B
-#define DEFAULT_4_LFT                            KC_LALT, TD(TD_CTL), LT(LWR, KC_ENT)
+#define DEFAULT_4_LFT                            KC_LALT, TD(TD_LFT), LT(LWR, KC_ENT)
 
 #define DEFAULT_0_RGT KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC
 #define DEFAULT_1_RGT KC_Y,    KC_U,    KC_I,    KC_O,    KC_P     //either BSLS or BSPC
 #define DEFAULT_2_RGT KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT
 #define DEFAULT_3_RGT KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT
-#define DEFAULT_4_RGT LT(RSE, KC_SPC),  TD(TD_GUI), KC_RALT
+#define DEFAULT_4_RGT LT(RSE, KC_SPC),  TD(TD_RGT), KC_RALT
 
 #define DEFAULT_0 DEFAULT_0_LFT, DEFAULT_0_RGT
 #define DEFAULT_1 DEFAULT_1_LFT, DEFAULT_1_RGT
