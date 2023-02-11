@@ -23,12 +23,54 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define LAYOUT_crkbd_wrapper(...) LAYOUT_split_3x6_3(__VA_ARGS__)
 
+#define _HYPER 4
+#define MO_HYPR MO(_HYPER)
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [0] = LAYOUT_crkbd_wrapper(DEFAULT_1, KC_BSPC, DEFAULT_2, DEFAULT_3, DEFAULT_4),
-  [1] = LAYOUT_crkbd_wrapper(RAISE_1,   KC_DEL,  RAISE_2,   RAISE_3,   RAISE_4),
-  [2] = LAYOUT_crkbd_wrapper(LOWER_1,            LOWER_2,   LOWER_3,   LOWER_4),
-  [3] = LAYOUT_crkbd_wrapper(ADJUST_1,           ADJUST_2,  ADJUST_3,  ADJUST_4),
-  [4] = LAYOUT_crkbd_wrapper(GAMING_1,  KC_BSPC, GAMING_2,  GAMING_3,  GAMING_4),
+  [_BASE] = LAYOUT_crkbd_wrapper(
+ //┌────────┬────────┬────────┬────────┬────────┬────────┐          ┌────────┬────────┬────────┬────────┬────────┬────────┐
+    KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,               KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
+ //├────────┼────────┼────────┼────────┼────────┼────────┤          ├────────┼────────┼────────┼────────┼────────┼────────┤
+    KC_ESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,               KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
+ //├────────┼────────┼────────┼────────┼────────┼────────┤          ├────────┼────────┼────────┼────────┼────────┼────────┤
+    KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,               KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
+ //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┐ ┌────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
+                                   KC_LALT, TD_LFT,  ENT_LWR,   SPC_RSE, TD_RGT,  KC_RALT
+                               // └────────┴────────┴────────┘ └────────┴────────┴────────┘
+  ),
+  [_RAISE] = LAYOUT_crkbd_wrapper(
+ //┌────────┬────────┬────────┬────────┬────────┬────────┐          ┌────────┬────────┬────────┬────────┬────────┬────────┐
+    _______, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,               KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_DEL,
+ //├────────┼────────┼────────┼────────┼────────┼────────┤          ├────────┼────────┼────────┼────────┼────────┼────────┤
+    _______, APP_1,   APP_2,   APP_3,   APP_4,   APP_5,              KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_PSCR, KC_INS,
+ //├────────┼────────┼────────┼────────┼────────┼────────┤          ├────────┼────────┼────────┼────────┼────────┼────────┤
+    _______, DSK_LFT, DSK_RGT, XXXXXXX, TILE,    UNTILE,             KC_HOME, KC_PGDN, KC_PGUP, KC_END,  XXXXXXX, XXXXXXX,
+ //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┐ ┌────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
+                                   _______, _______, MO_HYPR,   _______, _______, _______
+                               // └────────┴────────┴────────┘ └────────┴────────┴────────┘
+  ),
+  [_LOWER] = LAYOUT_crkbd_wrapper(
+ //┌────────┬────────┬────────┬────────┬────────┬────────┐          ┌────────┬────────┬────────┬────────┬────────┬────────┐
+    _______, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,            KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, XXXXXXX,
+ //├────────┼────────┼────────┼────────┼────────┼────────┤          ├────────┼────────┼────────┼────────┼────────┼────────┤
+    _______, GUI_ALL, KC_MICM, KC_VOLD, KC_VOLU, KC_MUTE,            KC_BSLS, KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_GRV,
+ //├────────┼────────┼────────┼────────┼────────┼────────┤          ├────────┼────────┼────────┼────────┼────────┼────────┤
+    _______, XXXXXXX, XXXXXXX, KC_MPRV, KC_MNXT, KC_MPLY,            KC_PIPE, KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_TILD,
+ //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┐ ┌────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
+                                   _______, _______, _______,   MO_HYPR, _______, _______
+                               // └────────┴────────┴────────┘ └────────┴────────┴────────┘
+  ),
+  [_HYPER] = LAYOUT_crkbd_wrapper(
+ //┌────────┬────────┬────────┬────────┬────────┬────────┐          ┌────────┬────────┬────────┬────────┬────────┬────────┐
+    KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,              KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,
+ //├────────┼────────┼────────┼────────┼────────┼────────┤          ├────────┼────────┼────────┼────────┼────────┼────────┤
+    _______, GUI_ALL, KC_MICM, KC_VOLD, KC_VOLU, KC_MUTE,            KC_BSLS, KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_GRV,
+ //├────────┼────────┼────────┼────────┼────────┼────────┤          ├────────┼────────┼────────┼────────┼────────┼────────┤
+    _______, DSK_LFT, DSK_RGT, KC_MPRV, KC_MNXT, KC_MPLY,            KC_PIPE, KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_TILD,
+ //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┐ ┌────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
+                                   _______, _______, _______,   _______, _______, _______
+                               // └────────┴────────┴────────┘ └────────┴────────┴────────┘
+  )
 };
 
 #ifdef OLED_DRIVER_ENABLE
@@ -42,9 +84,7 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
 #define L_BASE 0
 #define L_RAISE 2
 #define L_LOWER 4
-#define L_ADJUST 8
-#define L_GAMING 16
-#define L_GRAISE 32
+#define L_HYPER 8
 
 void oled_render_layer_state(void) {
     switch (layer_state) {
@@ -63,23 +103,12 @@ void oled_render_layer_state(void) {
             oled_write_ln_P(PSTR("     R A I S E     "), false);
             oled_write_ln_P(PSTR("                   "), false);
             break;
-        case L_ADJUST:
-        case L_ADJUST|L_LOWER:
-        case L_ADJUST|L_RAISE:
-        case L_ADJUST|L_LOWER|L_RAISE:
+        case L_HYPER:
+        case L_HYPER|L_LOWER:
+        case L_HYPER|L_RAISE:
+        case L_HYPER|L_LOWER|L_RAISE:
             oled_write_ln_P(PSTR("                   "), false);
-            oled_write_ln_P(PSTR("    A D J U S T    "), false);
-            oled_write_ln_P(PSTR("                   "), false);
-            break;
-        case L_GAMING:
-            oled_write_ln_P(PSTR("    G A M I N G    "), false);
-            oled_write_ln_P(PSTR("                   "), false);
-            oled_write_ln_P(PSTR("                   "), false);
-            break;
-        case L_GRAISE:
-        case L_GRAISE|L_GAMING:
-            oled_write_ln_P(PSTR("    G A M I N G    "), false);
-            oled_write_ln_P(PSTR("     R A I S E     "), false);
+            oled_write_ln_P(PSTR("     H Y P E R     "), false);
             oled_write_ln_P(PSTR("                   "), false);
             break;
     }

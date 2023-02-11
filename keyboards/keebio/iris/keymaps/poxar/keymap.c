@@ -1,50 +1,84 @@
 #include QMK_KEYBOARD_H
 #include "poxar.h"
 
-#define LAYOUT_iris_wrapper(...) LAYOUT(__VA_ARGS__)
+#define _GAME 3
+#define _GAME_RAISE 4
+
+#define DF_BASE DF(_BASE)
+#define DF_GAME DF(_GAME)
+#define GAME_MO OSL(_GAME_RAISE)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [0] = LAYOUT_iris_wrapper(
-    DEFAULT_0,
-    DEFAULT_1, KC_BSLS,
-    DEFAULT_2,
-    DEFAULT_3_LFT, KC_F17, KC_F18, DEFAULT_3_RGT,
-    DEFAULT_4
+  [_BASE] = LAYOUT(
+ //┌────────┬────────┬────────┬────────┬────────┬────────┐                    ┌────────┬────────┬────────┬────────┬────────┬────────┐
+    KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                         KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
+ //├────────┼────────┼────────┼────────┼────────┼────────┤                    ├────────┼────────┼────────┼────────┼────────┼────────┤
+    KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS,
+ //├────────┼────────┼────────┼────────┼────────┼────────┤                    ├────────┼────────┼────────┼────────┼────────┼────────┤
+    KC_ESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                         KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
+ //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐  ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
+    KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_LGUI,    KC_RGUI, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
+ //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘  └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
+                                   KC_LALT, TD_LFT,  ENT_LWR,             SPC_RSE, TD_RGT,  KC_RALT
+                               // └────────┴────────┴────────┘           └────────┴────────┴────────┘
   ),
-  [1] = LAYOUT_iris_wrapper(
-    RAISE_0,
-    RAISE_1, XXXXXXX,
-    RAISE_2,
-    RAISE_3_LFT, KC_F17, KC_F18, RAISE_3_RGT,
-    RAISE_4
+  [_RAISE] = LAYOUT(
+ //┌────────┬────────┬────────┬────────┬────────┬────────┐                    ┌────────┬────────┬────────┬────────┬────────┬────────┐
+    _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                        KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_BSPC,
+ //├────────┼────────┼────────┼────────┼────────┼────────┤                    ├────────┼────────┼────────┼────────┼────────┼────────┤
+    _______, APP_1,   APP_2,   APP_3,   APP_4,   APP_5,                        TILE,    UNTILE,  XXXXXXX, KC_LBRC, KC_RBRC, KC_BSLS,
+ //├────────┼────────┼────────┼────────┼────────┼────────┤                    ├────────┼────────┼────────┼────────┼────────┼────────┤
+    _______, GUI_ALL, KC_MICM, KC_VOLD, KC_VOLU, KC_MUTE,                      KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_PSCR, KC_INS,
+ //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐  ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
+    _______, DSK_LFT, DSK_RGT, KC_MPRV, KC_MNXT, KC_MPLY, _______,    _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END,  XXXXXXX, DF_GAME,
+ //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘  └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
+                                   _______, _______, RESET,               _______, _______, _______
+                               // └────────┴────────┴────────┘           └────────┴────────┴────────┘
   ),
-  [2] = LAYOUT_iris_wrapper(
-    LOWER_0,
-    LOWER_1,
-    LOWER_2,
-    LOWER_3_LFT, KC_F17, KC_F18, LOWER_3_RGT,
-    LOWER_4
+  [_LOWER] = LAYOUT(
+ //┌────────┬────────┬────────┬────────┬────────┬────────┐                    ┌────────┬────────┬────────┬────────┬────────┬────────┐
+    _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                        KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_BSPC,
+ //├────────┼────────┼────────┼────────┼────────┼────────┤                    ├────────┼────────┼────────┼────────┼────────┼────────┤
+    _______, APP_1,   APP_2,   APP_3,   APP_4,   APP_5,                        MEH_1,   MEH_2,   MEH_3,   KC_LPRN, KC_RPRN, KC_BSLS,
+ //├────────┼────────┼────────┼────────┼────────┼────────┤                    ├────────┼────────┼────────┼────────┼────────┼────────┤
+    _______, GUI_ALL, KC_MICM, KC_VOLD, KC_VOLU, KC_MUTE,                      KC_BSPC, KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_PIPE,
+ //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐  ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
+    _______, DSK_LFT, DSK_RGT, KC_MPRV, KC_MNXT, KC_MPLY, _______,    _______, KC_DEL,  KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_TILD,
+ //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘  └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
+                                   _______, _______, _______,             RESET,   _______, _______
+                               // └────────┴────────┴────────┘           └────────┴────────┴────────┘
   ),
-  [3] = LAYOUT_iris_wrapper(
-    ADJUST_0,
-    ADJUST_1,
-    ADJUST_2,
-    ADJUST_3_LFT, KC_F17, KC_F18, ADJUST_3_RGT,
-    ADJUST_4
+  [_GAME] = LAYOUT(
+ //┌────────┬────────┬────────┬────────┬────────┬────────┐                    ┌────────┬────────┬────────┬────────┬────────┬────────┐
+    KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                         KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
+ //├────────┼────────┼────────┼────────┼────────┼────────┤                    ├────────┼────────┼────────┼────────┼────────┼────────┤
+    KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS,
+ //├────────┼────────┼────────┼────────┼────────┼────────┤                    ├────────┼────────┼────────┼────────┼────────┼────────┤
+    KC_ESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                         KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
+ //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐  ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
+    KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    GAME_MO,    KC_LGUI, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
+ //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘  └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
+                                   KC_LALT, KC_LCTL, KC_SPC,              KC_ENT,  DF_BASE, KC_RALT
+                               // └────────┴────────┴────────┘           └────────┴────────┴────────┘
   ),
-  [4] = LAYOUT_iris_wrapper(
-    GAMING_0,
-    GAMING_1, KC_BSLS,
-    GAMING_2,
-    GAMING_3_LFT, KC_F17, KC_F18, GAMING_3_RGT,
-    GAMING_4
-  ),
+  [_GAME_RAISE] = LAYOUT(
+ //┌────────┬────────┬────────┬────────┬────────┬────────┐                    ┌────────┬────────┬────────┬────────┬────────┬────────┐
+    XXXXXXX, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                        KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  XXXXXXX,
+ //├────────┼────────┼────────┼────────┼────────┼────────┤                    ├────────┼────────┼────────┼────────┼────────┼────────┤
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_I,                         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+ //├────────┼────────┼────────┼────────┼────────┼────────┤                    ├────────┼────────┼────────┼────────┼────────┼────────┤
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+ //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐  ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+ //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘  └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
+                                   _______, _______, _______,             _______, _______, _______
+                               // └────────┴────────┴────────┘           └────────┴────────┴────────┘
+  )
 };
 
 const rgblight_segment_t PROGMEM default_layer[] = RGBLIGHT_LAYER_SEGMENTS({0, 12, HSV_OFF});
 const rgblight_segment_t PROGMEM raise_layer[] = RGBLIGHT_LAYER_SEGMENTS({0, 12, HSV_PURPLE});
 const rgblight_segment_t PROGMEM lower_layer[] = RGBLIGHT_LAYER_SEGMENTS({0, 12, HSV_ORANGE});
-const rgblight_segment_t PROGMEM adjust_layer[] = RGBLIGHT_LAYER_SEGMENTS({0, 12, HSV_BLUE});
 const rgblight_segment_t PROGMEM gaming_layer[] = RGBLIGHT_LAYER_SEGMENTS({0, 12, HSV_RED});
 const rgblight_segment_t PROGMEM gaming_raise_layer[] = RGBLIGHT_LAYER_SEGMENTS({0, 12, HSV_GREEN});
 
@@ -52,7 +86,6 @@ const rgblight_segment_t* const PROGMEM rgb_layers[] = RGBLIGHT_LAYERS_LIST(
     default_layer,
     raise_layer,
     lower_layer,
-    adjust_layer,
     gaming_layer,
     gaming_raise_layer
 );
