@@ -1,6 +1,4 @@
 #pragma once
-#define USB_POLLING_INTERVAL_MS 1
-#define QMK_KEYS_PER_SCAN 12
 
 // Layers
 #define _BASE 0
@@ -11,14 +9,16 @@
 #define SPC_RSE LT(_RAISE, KC_SPACE)
 #define ENT_LWR LT(_LOWER, KC_ENTER)
 
-// Dual use keys
-enum {
-    TD_LCTL_LGUI,
-    TD_RCTL_LALT,
-};
+// Modifiers
+#define OS_LCTL OSM(MOD_LCTL)
+#define OS_RCTL OSM(MOD_RSFT)
+#define OS_LALT OSM(MOD_LALT)
+#define OS_RALT OSM(MOD_RALT)
 
-#define TD_LFT TD(TD_LCTL_LGUI)
-#define TD_RGT TD(TD_RCTL_LALT)
+// Dual use modifiers (home row mods light)
+#define MT_A MT(MOD_LSFT, KC_A)
+#define MT_SCLN MT(MOD_LSFT, KC_SCLN)
+#define MT_ESC MT(MOD_LGUI, KC_ESC)
 
 // Macros
 #define KC_MICM KC_F20
@@ -36,6 +36,6 @@ enum {
 #define MEH_3 MEH(KC_F3)
 
 enum custom_keycodes {
-    TILE = SAFE_RANGE,
-    UNTILE,
+    PX_TERM = SAFE_RANGE,
+    PX_TILE,
 };

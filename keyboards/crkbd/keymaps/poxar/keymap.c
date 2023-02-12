@@ -29,33 +29,33 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT_crkbd_wrapper(
  //┌────────┬────────┬────────┬────────┬────────┬────────┐          ┌────────┬────────┬────────┬────────┬────────┬────────┐
-    KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,               KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
+    KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,               KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS,
  //├────────┼────────┼────────┼────────┼────────┼────────┤          ├────────┼────────┼────────┼────────┼────────┼────────┤
-    KC_ESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,               KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
+    MT_ESC,  MT_A,    KC_S,    KC_D,    KC_F,    KC_G,               KC_H,    KC_J,    KC_K,    KC_L,    MT_SCLN, KC_QUOT,
  //├────────┼────────┼────────┼────────┼────────┼────────┤          ├────────┼────────┼────────┼────────┼────────┼────────┤
-    KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,               KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
+    KC_GRV,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,               KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, CAPS_WORD,
  //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┐ ┌────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
-                                   KC_LALT, TD_LFT,  ENT_LWR,   SPC_RSE, TD_RGT,  KC_RALT
+                                   OS_LALT, OS_LCTL, ENT_LWR,   SPC_RSE, KC_BSPC, OS_RALT
                                // └────────┴────────┴────────┘ └────────┴────────┴────────┘
   ),
   [_RAISE] = LAYOUT_crkbd_wrapper(
  //┌────────┬────────┬────────┬────────┬────────┬────────┐          ┌────────┬────────┬────────┬────────┬────────┬────────┐
-    _______, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,               KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_DEL,
+    _______, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,               KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_PIPE,
  //├────────┼────────┼────────┼────────┼────────┼────────┤          ├────────┼────────┼────────┼────────┼────────┼────────┤
     _______, APP_1,   APP_2,   APP_3,   APP_4,   APP_5,              KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_PSCR, KC_INS,
  //├────────┼────────┼────────┼────────┼────────┼────────┤          ├────────┼────────┼────────┼────────┼────────┼────────┤
-    _______, DSK_LFT, DSK_RGT, XXXXXXX, TILE,    UNTILE,             KC_HOME, KC_PGDN, KC_PGUP, KC_END,  XXXXXXX, XXXXXXX,
+    _______, DSK_LFT, DSK_RGT, XXXXXXX, PX_TERM, PX_TILE,            KC_HOME, KC_PGDN, KC_PGUP, KC_END,  XXXXXXX, XXXXXXX,
  //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┐ ┌────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
                                    _______, _______, MO_HYPR,   _______, _______, _______
                                // └────────┴────────┴────────┘ └────────┴────────┴────────┘
   ),
   [_LOWER] = LAYOUT_crkbd_wrapper(
  //┌────────┬────────┬────────┬────────┬────────┬────────┐          ┌────────┬────────┬────────┬────────┬────────┬────────┐
-    _______, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,            KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, XXXXXXX,
+    _______, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,            KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_PIPE,
  //├────────┼────────┼────────┼────────┼────────┼────────┤          ├────────┼────────┼────────┼────────┼────────┼────────┤
-    _______, GUI_ALL, KC_MICM, KC_VOLD, KC_VOLU, KC_MUTE,            KC_BSLS, KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_GRV,
+    _______, GUI_ALL, KC_MICM, KC_VOLD, KC_VOLU, KC_MUTE,            KC_BSPC, KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_GRV,
  //├────────┼────────┼────────┼────────┼────────┼────────┤          ├────────┼────────┼────────┼────────┼────────┼────────┤
-    _______, XXXXXXX, XXXXXXX, KC_MPRV, KC_MNXT, KC_MPLY,            KC_PIPE, KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_TILD,
+    _______, XXXXXXX, XXXXXXX, KC_MPRV, KC_MNXT, KC_MPLY,            KC_DEL,  KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_TILD,
  //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┐ ┌────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
                                    _______, _______, _______,   MO_HYPR, _______, _______
                                // └────────┴────────┴────────┘ └────────┴────────┴────────┘
@@ -64,9 +64,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  //┌────────┬────────┬────────┬────────┬────────┬────────┐          ┌────────┬────────┬────────┬────────┬────────┬────────┐
     KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,              KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,
  //├────────┼────────┼────────┼────────┼────────┼────────┤          ├────────┼────────┼────────┼────────┼────────┼────────┤
-    _______, GUI_ALL, KC_MICM, KC_VOLD, KC_VOLU, KC_MUTE,            KC_BSLS, KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_GRV,
+    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,            XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
  //├────────┼────────┼────────┼────────┼────────┼────────┤          ├────────┼────────┼────────┼────────┼────────┼────────┤
-    _______, DSK_LFT, DSK_RGT, KC_MPRV, KC_MNXT, KC_MPLY,            KC_PIPE, KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_TILD,
+    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,            XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RESET,
  //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┐ ┌────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
                                    _______, _______, _______,   _______, _______, _______
                                // └────────┴────────┴────────┘ └────────┴────────┴────────┘
