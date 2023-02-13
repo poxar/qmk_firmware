@@ -14,10 +14,16 @@
 #define OS_RCTL OSM(MOD_RSFT)
 #define OS_LALT OSM(MOD_LALT)
 #define OS_RALT OSM(MOD_RALT)
+#define OS_LSFT OSM(MOD_LSFT)
+#define OS_RSFT OSM(MOD_RSFT)
 
-// Dual use modifiers (home row mods light)
+// Dual use modifiers (home row mods)
 #define MT_A MT(MOD_LSFT, KC_A)
 #define MT_SCLN MT(MOD_LSFT, KC_SCLN)
+
+#define MT_D MT(MOD_LSFT, KC_D)
+#define MT_K MT(MOD_RSFT, KC_K)
+
 #define MT_ESC MT(MOD_LGUI, KC_ESC)
 
 // Macros
@@ -31,11 +37,8 @@
 #define DSK_LFT LALT(LCTL(KC_LEFT))
 #define DSK_RGT LALT(LCTL(KC_RIGHT))
 
-#define MEH_1 MEH(KC_F1)
-#define MEH_2 MEH(KC_F2)
-#define MEH_3 MEH(KC_F3)
-
 enum custom_keycodes {
-    PX_TERM = SAFE_RANGE,
+    PX_CLR = SAFE_RANGE,
+    PX_TERM,
     PX_TILE,
 };

@@ -1,3 +1,5 @@
 OLED_DRIVER_ENABLE = yes
 RGBLIGHT_ENABLE = no
 CAPS_WORD_ENABLE = yes
+
+DEBOUNCE_TYPE = sym_eager_pk
