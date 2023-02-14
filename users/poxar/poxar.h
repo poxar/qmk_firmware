@@ -9,31 +9,20 @@
 #define SPC_RSE LT(_RAISE, KC_SPACE)
 #define ENT_LWR LT(_LOWER, KC_ENTER)
 
-// Modifiers
+// Oneshot modifiers
 #define OS_LCTL OSM(MOD_LCTL)
-#define OS_RCTL OSM(MOD_RSFT)
 #define OS_LALT OSM(MOD_LALT)
 #define OS_RALT OSM(MOD_RALT)
-#define OS_LSFT OSM(MOD_LSFT)
-#define OS_RSFT OSM(MOD_RSFT)
-
-// Dual use modifiers (home row mods)
-#define MT_A MT(MOD_LSFT, KC_A)
-#define MT_SCLN MT(MOD_LSFT, KC_SCLN)
-
-#define MT_D MT(MOD_LSFT, KC_D)
-#define MT_K MT(MOD_RSFT, KC_K)
-
-#define MT_ESC MT(MOD_LGUI, KC_ESC)
 
 // Macros
-#define KC_MICM KC_F20
-#define GUI_ALL LGUI(KC_A)
+#define KC_MICM KC_F20 // F20 mutes the microphone in linux
 #define APP_1 LGUI(KC_1)
 #define APP_2 LGUI(KC_2)
 #define APP_3 LGUI(KC_3)
 #define APP_4 LGUI(KC_4)
 #define APP_5 LGUI(KC_5)
+#define APP_6 LGUI(KC_6)
+#define APP_7 LGUI(KC_7)
 #define DSK_LFT LALT(LCTL(KC_LEFT))
 #define DSK_RGT LALT(LCTL(KC_RIGHT))
 
@@ -41,4 +30,10 @@ enum custom_keycodes {
     PX_CLR = SAFE_RANGE,
     PX_TERM,
     PX_TILE,
+    PX_MAIL,
+    PX_NEWS,
+    PX_SCLD,
+    PX_LOFF,
+    PX_LHLF,
+    PX_LFLL,
 };
