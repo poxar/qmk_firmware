@@ -17,6 +17,8 @@
 
 // Macros
 #define KC_MICM KC_F20 // F20 mutes the microphone in linux
+#define PX_APP1 LGUI(KC_1)
+#define PX_APP2 LGUI(KC_2)
 #define DSK_LFT LALT(LCTL(KC_LEFT))
 #define DSK_RGT LALT(LCTL(KC_RIGHT))
 #define SFT_LFT LALT(LCTL(LSFT(KC_LEFT)))
@@ -24,11 +26,5 @@
 
 enum custom_keycodes {
     PX_CLR = SAFE_RANGE,
-    PX_TERM,
     PX_TILE,
-    PX_MAIN,
-    PX_KEYL,
-    PX_LOFF,
-    PX_LHLF,
-    PX_LFLL,
 };

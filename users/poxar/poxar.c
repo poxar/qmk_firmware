@@ -2,6 +2,17 @@
 #include QMK_KEYBOARD_H
 #include "poxar.h"
 
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case KC_LSFT:
+            return TAPPING_TERM + 150;
+        case KC_RSFT:
+            return TAPPING_TERM + 150;
+        default:
+            return TAPPING_TERM;
+    }
+}
+
 // Macros
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
@@ -11,50 +22,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 clear_keyboard();
             }
             break;
-        case PX_TERM:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LGUI("2"));
-                SEND_STRING(SS_LGUI(SS_TAP(X_LEFT)));
-                SEND_STRING(SS_LGUI("1"));
-                SEND_STRING(SS_LGUI(SS_TAP(X_RIGHT)));
-            }
-            break;
         case PX_TILE:
             if (record->event.pressed) {
                 SEND_STRING(SS_LGUI(SS_TAP(X_RIGHT)));
-                SEND_STRING(SS_LALT(SS_TAP(X_ESCAPE)));
+                SEND_STRING(SS_LALT(SS_TAP(X_TAB)));
                 SEND_STRING(SS_LGUI(SS_TAP(X_LEFT)));
-                SEND_STRING(SS_LALT(SS_TAP(X_ESCAPE)));
-            }
-            break;
-        case PX_MAIN:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_F2)));
-                SEND_STRING("mosquitto_pub -t 'lights/main/set' -m 'toggle'\n");
-            }
-            break;
-        case PX_KEYL:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_F2)));
-                SEND_STRING("alacritty -e keylight toggle\n");
-            }
-            break;
-        case PX_LOFF:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_F2)));
-                SEND_STRING("mosquitto_pub -t 'lights/top/set' -m '0'\n");
-            }
-            break;
-        case PX_LHLF:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_F2)));
-                SEND_STRING("mosquitto_pub -t 'lights/top/set' -m '50'\n");
-            }
-            break;
-        case PX_LFLL:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LALT(SS_TAP(X_F2)));
-                SEND_STRING("mosquitto_pub -t 'lights/top/set' -m '100'\n");
+                SEND_STRING(SS_LALT(SS_TAP(X_TAB)));
             }
             break;
     }
