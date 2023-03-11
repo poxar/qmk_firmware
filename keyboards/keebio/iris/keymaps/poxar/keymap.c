@@ -1,14 +1,40 @@
 #include "keycode.h"
 #include "quantum_keycodes.h"
 #include QMK_KEYBOARD_H
-#include "poxar.h"
 
+// Layers
+#define _BASE 0
+#define _RAISE 1
+#define _LOWER 2
 #define _GAMING 3
 #define _GAMING_RAISE 4
 
+// Layer switching
 #define DF_BASE DF(_BASE)
 #define DF_GAME DF(_GAMING)
 #define GAME_MO OSL(_GAMING_RAISE)
+#define SPC_RSE LT(_RAISE, KC_SPACE)
+#define ENT_LWR LT(_LOWER, KC_ENTER)
+
+// One shot modifiers
+#define OS_LCTL OSM(MOD_LCTL)
+#define OS_LALT OSM(MOD_LALT)
+#define OS_LGUI OSM(MOD_LGUI)
+#define OS_RALT OSM(MOD_RALT)
+
+// Macros
+#define KC_MICM KC_F20 // F20 mutes the microphone in linux
+#define PX_APP1 LGUI(KC_1)
+#define PX_APP2 LGUI(KC_2)
+#define DSK_LFT LALT(LCTL(KC_LEFT))
+#define DSK_RGT LALT(LCTL(KC_RIGHT))
+#define SFT_LFT LALT(LCTL(LSFT(KC_LEFT)))
+#define SFT_RGT LALT(LCTL(LSFT(KC_RIGHT)))
+
+enum custom_keycodes {
+    PX_CLR = SAFE_RANGE,
+    PX_TILE,
+};
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT(
@@ -76,6 +102,37 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                    _______, _______, _______,             _______, _______, _______
                                // └────────┴────────┴────────┘           └────────┴────────┴────────┘
   )
+};
+
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case KC_LSFT:
+            return TAPPING_TERM + 150;
+        case KC_RSFT:
+            return TAPPING_TERM + 150;
+        default:
+            return TAPPING_TERM;
+    }
+}
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case PX_CLR:
+            if (record->event.pressed) {
+                clear_oneshot_mods();
+                clear_keyboard();
+            }
+            break;
+        case PX_TILE:
+            if (record->event.pressed) {
+                SEND_STRING(SS_LGUI(SS_TAP(X_RIGHT)));
+                SEND_STRING(SS_LALT(SS_TAP(X_TAB)));
+                SEND_STRING(SS_LGUI(SS_TAP(X_LEFT)));
+                SEND_STRING(SS_LALT(SS_TAP(X_TAB)));
+            }
+            break;
+    }
+    return true;
 };
 
 const rgblight_segment_t PROGMEM default_layer[] = RGBLIGHT_LAYER_SEGMENTS({0, 12, HSV_OFF});

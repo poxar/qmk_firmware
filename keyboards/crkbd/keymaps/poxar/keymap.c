@@ -19,21 +19,48 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include QMK_KEYBOARD_H
 #include <stdio.h>
-#include "poxar.h"
 
 #define LAYOUT_crkbd_wrapper(...) LAYOUT_split_3x6_3(__VA_ARGS__)
 
-#define _HYPER 4
+// Layers
+#define _BASE 0
+#define _RAISE 1
+#define _LOWER 2
+#define _HYPER 3
+
+// Layer switching
+#define SPC_RSE LT(_RAISE, KC_SPACE)
+#define ENT_LWR LT(_LOWER, KC_ENTER)
 #define MO_HYPR MO(_HYPER)
+
+// One shot modifiers
+#define OS_LCTL OSM(MOD_LCTL)
+#define OS_LALT OSM(MOD_LALT)
+#define OS_LGUI OSM(MOD_LGUI)
+#define OS_RALT OSM(MOD_RALT)
+
+// Macros
+#define KC_MICM KC_F20 // F20 mutes the microphone in linux
+#define PX_APP1 LGUI(KC_1)
+#define PX_APP2 LGUI(KC_2)
+#define DSK_LFT LALT(LCTL(KC_LEFT))
+#define DSK_RGT LALT(LCTL(KC_RIGHT))
+#define SFT_LFT LALT(LCTL(LSFT(KC_LEFT)))
+#define SFT_RGT LALT(LCTL(LSFT(KC_RIGHT)))
+
+enum custom_keycodes {
+    PX_CLR = SAFE_RANGE,
+    PX_TILE,
+};
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT_crkbd_wrapper(
  //┌────────┬────────┬────────┬────────┬────────┬────────┐          ┌────────┬────────┬────────┬────────┬────────┬────────┐
     KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,               KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
  //├────────┼────────┼────────┼────────┼────────┼────────┤          ├────────┼────────┼────────┼────────┼────────┼────────┤
-    MT_ESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,               KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
+    KC_ESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,               KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
  //├────────┼────────┼────────┼────────┼────────┼────────┤          ├────────┼────────┼────────┼────────┼────────┼────────┤
-    KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,               KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, CAPS_WORD,
+    KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,               KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
  //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┐ ┌────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
                                    OS_LALT, OS_LCTL, ENT_LWR,   SPC_RSE, KC_BSPC, OS_RALT
                                // └────────┴────────┴────────┘ └────────┴────────┴────────┘
@@ -42,9 +69,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  //┌────────┬────────┬────────┬────────┬────────┬────────┐          ┌────────┬────────┬────────┬────────┬────────┬────────┐
     _______, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,               KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSLS,
  //├────────┼────────┼────────┼────────┼────────┼────────┤          ├────────┼────────┼────────┼────────┼────────┼────────┤
-    _______, APP_1,   APP_2,   APP_3,   APP_4,   APP_5,              KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_PSCR, KC_INS,
+    _______, PX_APP1, PX_APP2, DSK_LFT, DSK_RGT, XXXXXXX,            KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_ESC,  KC_INS,
  //├────────┼────────┼────────┼────────┼────────┼────────┤          ├────────┼────────┼────────┼────────┼────────┼────────┤
-    _______, DSK_LFT, DSK_RGT, XXXXXXX, PX_TERM, PX_TILE,            KC_HOME, KC_PGDN, KC_PGUP, KC_END,  XXXXXXX, XXXXXXX,
+    _______, XXXXXXX, XXXXXXX, SFT_LFT, SFT_RGT, XXXXXXX,            KC_HOME, KC_PGDN, KC_PGUP, KC_END,  XXXXXXX, PX_CLR,
  //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┐ ┌────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
                                    _______, _______, MO_HYPR,   _______, _______, _______
                                // └────────┴────────┴────────┘ └────────┴────────┴────────┘
@@ -53,7 +80,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  //┌────────┬────────┬────────┬────────┬────────┬────────┐          ┌────────┬────────┬────────┬────────┬────────┬────────┐
     _______, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,            KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_PIPE,
  //├────────┼────────┼────────┼────────┼────────┼────────┤          ├────────┼────────┼────────┼────────┼────────┼────────┤
-    _______, GUI_ALL, KC_MICM, KC_VOLD, KC_VOLU, KC_MUTE,            KC_BSPC, KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_GRV,
+    _______, XXXXXXX, PX_TILE, KC_VOLD, KC_VOLU, KC_MUTE,            KC_BSPC, KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_GRV,
  //├────────┼────────┼────────┼────────┼────────┼────────┤          ├────────┼────────┼────────┼────────┼────────┼────────┤
     _______, XXXXXXX, XXXXXXX, KC_MPRV, KC_MNXT, KC_MPLY,            KC_DEL,  KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_TILD,
  //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┐ ┌────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
@@ -71,6 +98,37 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                    _______, _______, _______,   _______, _______, _______
                                // └────────┴────────┴────────┘ └────────┴────────┴────────┘
   )
+};
+
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case KC_LSFT:
+            return TAPPING_TERM + 150;
+        case KC_RSFT:
+            return TAPPING_TERM + 150;
+        default:
+            return TAPPING_TERM;
+    }
+}
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case PX_CLR:
+            if (record->event.pressed) {
+                clear_oneshot_mods();
+                clear_keyboard();
+            }
+            break;
+        case PX_TILE:
+            if (record->event.pressed) {
+                SEND_STRING(SS_LGUI(SS_TAP(X_RIGHT)));
+                SEND_STRING(SS_LALT(SS_TAP(X_TAB)));
+                SEND_STRING(SS_LGUI(SS_TAP(X_LEFT)));
+                SEND_STRING(SS_LALT(SS_TAP(X_TAB)));
+            }
+            break;
+    }
+    return true;
 };
 
 #ifdef OLED_DRIVER_ENABLE
