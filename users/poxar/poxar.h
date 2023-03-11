@@ -9,11 +9,11 @@
 #define SPC_RSE LT(_RAISE, KC_SPACE)
 #define ENT_LWR LT(_LOWER, KC_ENTER)
 
-// Oneshot modifiers
+// One shot modifiers
 #define OS_LCTL OSM(MOD_LCTL)
 #define OS_LALT OSM(MOD_LALT)
-#define OS_RALT OSM(MOD_RALT)
 #define OS_LGUI OSM(MOD_LGUI)
+#define OS_RALT OSM(MOD_RALT)
 
 // Macros
 #define KC_MICM KC_F20 // F20 mutes the microphone in linux
