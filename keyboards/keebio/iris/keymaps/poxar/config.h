@@ -7,6 +7,8 @@
 #define QUICK_TAP_TERM_PER_KEY
 #define QUICK_TAP_TERM 0
 
+/* #define COMBO_COUNT 6 */
+
 #define PERMISSIVE_HOLD
 #define IGNORE_MOD_TAP_INTERRUPT
 
