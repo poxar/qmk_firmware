@@ -1,6 +1,4 @@
 CAPS_WORD_ENABLE = yes
-TAP_DANCE_ENABLE = yes
-DEBOUNCE_TYPE = sym_eager_pk
 NKRO_ENABLE = yes
 
 RGB_MATRIX_ENABLE = no
