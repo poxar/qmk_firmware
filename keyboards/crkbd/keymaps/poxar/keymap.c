@@ -29,87 +29,94 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define _HYPER 3
 
 // Layer switching
-#define SPC_RSE LT(_RAISE, KC_SPACE)
-#define ENT_LWR LT(_LOWER, KC_ENTER)
+#define LT_RSE LT(_RAISE, KC_SPACE)
+#define LT_LWR LT(_LOWER, KC_ENTER)
 #define MO_HYPR OSL(_HYPER)
 
-// One shot modifiers
-#define OS_LCTL OSM(MOD_LCTL)
-#define OS_LALT OSM(MOD_LALT)
-#define OS_LGUI OSM(MOD_LGUI)
-#define OS_RALT OSM(MOD_RALT)
+// Modtap keys
+#define SFT_TAB MT(MOD_LSFT, KC_TAB)
+#define INT_BSP MT(MOD_RALT, KC_BACKSPACE)
 
-// Shift
-#define SF_A LSFT_T(KC_A)
-#define SF_SCLN RSFT_T(KC_SCLN)
+#define HM_S MT(MOD_LGUI, KC_S)
+#define HM_D MT(MOD_LALT, KC_D)
+#define HM_F MT(MOD_LCTL, KC_F)
+
+#define HM_J MT(MOD_RCTL, KC_J)
+#define HM_K MT(MOD_LALT, KC_K)
+#define HM_L MT(MOD_RGUI, KC_L)
 
 // Macros
+#define CTLBSPC LCTL(KC_BSPC)
 #define KC_MICM KC_F20 // F20 mutes the microphone in linux
-#define PX_APP1 LGUI(KC_1)
-#define PX_APP2 LGUI(KC_2)
-#define DSK_LFT LALT(LCTL(KC_LEFT))
-#define DSK_RGT LALT(LCTL(KC_RIGHT))
-#define SFT_LFT LALT(LCTL(LSFT(KC_LEFT)))
-#define SFT_RGT LALT(LCTL(LSFT(KC_RIGHT)))
 
 enum custom_keycodes {
-    PX_CLR = SAFE_RANGE,
-    PX_TILE,
+    PX_TILE = SAFE_RANGE,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT_crkbd_wrapper(
  //┌────────┬────────┬────────┬────────┬────────┬────────┐          ┌────────┬────────┬────────┬────────┬────────┬────────┐
-    KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,               KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
+    KC_GRV,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,               KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS,
  //├────────┼────────┼────────┼────────┼────────┼────────┤          ├────────┼────────┼────────┼────────┼────────┼────────┤
-    KC_ESC,  SF_A,    KC_S,    KC_D,    KC_F,    KC_G,               KC_H,    KC_J,    KC_K,    KC_L,    SF_SCLN, KC_QUOT,
+    KC_ESC,  KC_A,    HM_S,    HM_D,    HM_F,    KC_G,               KC_H,    HM_J,    HM_K,    HM_L,    KC_SCLN, KC_QUOT,
  //├────────┼────────┼────────┼────────┼────────┼────────┤          ├────────┼────────┼────────┼────────┼────────┼────────┤
     KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,               KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
  //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┐ ┌────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
-                                   OS_LALT, OS_LCTL, ENT_LWR,   SPC_RSE, OS_LGUI, OS_RALT
+                                   KC_DEL,  SFT_TAB, LT_LWR,    LT_RSE,  INT_BSP, KC_INS
                                // └────────┴────────┴────────┘ └────────┴────────┴────────┘
   ),
   [_RAISE] = LAYOUT_crkbd_wrapper(
  //┌────────┬────────┬────────┬────────┬────────┬────────┐          ┌────────┬────────┬────────┬────────┬────────┬────────┐
-    _______, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,               KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSLS,
+    _______, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,               KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    _______,
  //├────────┼────────┼────────┼────────┼────────┼────────┤          ├────────┼────────┼────────┼────────┼────────┼────────┤
-    _______, PX_APP1, PX_APP2, DSK_LFT, DSK_RGT, XXXXXXX,            KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_ESC,  KC_INS,
+    _______, KC_GRV,  XXXXXXX, KC_LBRC, KC_LPRN, KC_LCBR,            KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_QUOT, _______,
  //├────────┼────────┼────────┼────────┼────────┼────────┤          ├────────┼────────┼────────┼────────┼────────┼────────┤
-    _______, XXXXXXX, XXXXXXX, SFT_LFT, SFT_RGT, XXXXXXX,            KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_TAB, PX_CLR,
+    _______, KC_TILD, XXXXXXX, KC_RBRC, KC_RPRN, KC_RCBR,            KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_BSLS, _______,
  //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┐ ┌────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
                                    _______, _______, MO_HYPR,   _______, _______, _______
                                // └────────┴────────┴────────┘ └────────┴────────┴────────┘
   ),
   [_LOWER] = LAYOUT_crkbd_wrapper(
  //┌────────┬────────┬────────┬────────┬────────┬────────┐          ┌────────┬────────┬────────┬────────┬────────┬────────┐
-    _______, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,            KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_PIPE,
+    KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,            KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_PIPE,
  //├────────┼────────┼────────┼────────┼────────┼────────┤          ├────────┼────────┼────────┼────────┼────────┼────────┤
-    _______, XXXXXXX, PX_TILE, KC_VOLD, KC_VOLU, KC_MUTE,            KC_BSPC, KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_GRV,
+    _______, KC_ESC,  PX_TILE, KC_VOLD, KC_VOLU, KC_MUTE,            XXXXXXX, KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, _______,
  //├────────┼────────┼────────┼────────┼────────┼────────┤          ├────────┼────────┼────────┼────────┼────────┼────────┤
-    _______, XXXXXXX, XXXXXXX, KC_MPRV, KC_MNXT, KC_MPLY,            KC_DEL,  KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_TILD,
+    _______, KC_DEL,  KC_MICM, KC_MPRV, KC_MNXT, KC_MPLY,            XXXXXXX, KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, _______,
  //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┐ ┌────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
-                                   _______, _______, _______,   MO_HYPR, _______, _______
+                                   _______, _______, _______,   MO_HYPR, KC_DEL,  _______
                                // └────────┴────────┴────────┘ └────────┴────────┴────────┘
   ),
   [_HYPER] = LAYOUT_crkbd_wrapper(
  //┌────────┬────────┬────────┬────────┬────────┬────────┐          ┌────────┬────────┬────────┬────────┬────────┬────────┐
-    KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,              KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,
+    _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   XXXXXXX,            KC_SLSH, KC_7,    KC_8,    KC_9,    KC_MINS, _______,
  //├────────┼────────┼────────┼────────┼────────┼────────┤          ├────────┼────────┼────────┼────────┼────────┼────────┤
-    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,            XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    _______, KC_F5,   KC_F6,   KC_F7,   KC_F8,   XXXXXXX,            KC_ASTR, KC_4,    KC_5,    KC_6,    KC_PLUS, _______,
  //├────────┼────────┼────────┼────────┼────────┼────────┤          ├────────┼────────┼────────┼────────┼────────┼────────┤
-    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,            XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    _______, KC_F9,   KC_F10,  KC_F11,  KC_F12,  XXXXXXX,            KC_0,    KC_1,    KC_2,    KC_3,    KC_ENT,  _______,
  //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┐ ┌────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
                                    _______, _______, _______,   _______, _______, _______
                                // └────────┴────────┴────────┘ └────────┴────────┴────────┘
   )
 };
 
+uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case LT_RSE:
+        case LT_LWR:
+        case INT_BSP:
+        case SFT_TAB:
+            return TAPPING_TERM;
+        default:
+            return 0;
+    }
+}
+
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case KC_LSFT:
-            return TAPPING_TERM + 150;
-        case KC_RSFT:
-            return TAPPING_TERM + 150;
+        case HM_S:
+        case HM_L:
+            return TAPPING_TERM + 100;
         default:
             return TAPPING_TERM;
     }
@@ -117,17 +124,14 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case PX_CLR:
-            if (record->event.pressed) {
-                clear_oneshot_mods();
-                clear_keyboard();
-            }
-            break;
         case PX_TILE:
             if (record->event.pressed) {
                 SEND_STRING(SS_LGUI(SS_TAP(X_RIGHT)));
+                wait_ms(10);
                 SEND_STRING(SS_LALT(SS_TAP(X_TAB)));
+                wait_ms(10);
                 SEND_STRING(SS_LGUI(SS_TAP(X_LEFT)));
+                wait_ms(10);
                 SEND_STRING(SS_LALT(SS_TAP(X_TAB)));
             }
             break;
@@ -135,45 +139,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return true;
 };
 
-#ifdef OLED_DRIVER_ENABLE
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
   if (!is_keyboard_master()) {
     return OLED_ROTATION_180;  // flips the display 180 degrees if offhand
   }
   return rotation;
-}
-
-#define L_BASE 0
-#define L_RAISE 2
-#define L_LOWER 4
-#define L_HYPER 8
-
-void oled_render_layer_state(void) {
-    switch (layer_state) {
-        case L_BASE:
-            oled_write_ln_P(PSTR("                   "), false);
-            oled_write_ln_P(PSTR("                   "), false);
-            oled_write_ln_P(PSTR("                   "), false);
-            break;
-        case L_LOWER:
-            oled_write_ln_P(PSTR("                   "), false);
-            oled_write_ln_P(PSTR("     L O W E R     "), false);
-            oled_write_ln_P(PSTR("                   "), false);
-            break;
-        case L_RAISE:
-            oled_write_ln_P(PSTR("                   "), false);
-            oled_write_ln_P(PSTR("     R A I S E     "), false);
-            oled_write_ln_P(PSTR("                   "), false);
-            break;
-        case L_HYPER:
-        case L_HYPER|L_LOWER:
-        case L_HYPER|L_RAISE:
-        case L_HYPER|L_LOWER|L_RAISE:
-            oled_write_ln_P(PSTR("                   "), false);
-            oled_write_ln_P(PSTR("     H Y P E R     "), false);
-            oled_write_ln_P(PSTR("                   "), false);
-            break;
-    }
 }
 
 void oled_render_logo(void) {
@@ -185,11 +155,7 @@ void oled_render_logo(void) {
     oled_write_P(crkbd_logo, false);
 }
 
-void oled_task_user(void) {
-    if (is_keyboard_master()) {
-        oled_render_layer_state();
-    } else {
-        oled_render_logo();
-    }
+bool oled_task_user(void) {
+    oled_render_logo();
+    return false;
 }
-#endif // OLED_DRIVER_ENABLE
