@@ -19,8 +19,11 @@
 #define OSL_LFT OSL(_LEFT)
 #define OSL_ADJ OSL(_ADJUST)
 
-#define RGT_SPC LT(_RIGHT, KC_SPACE)
-#define LFT_ENT LT(_LEFT, KC_ENTER)
+#define RIGHT_L LT(_RIGHT, KC_SPACE)
+#define LEFT_L LT(_LEFT, KC_SPACE)
+
+// TAP
+#define MY_RSFT RSFT_T(KC_ENTER)
 
 // Modifiers
 #define OSM_CTL OSM(MOD_LCTL)
@@ -31,6 +34,7 @@
 // Shortcuts
 #define KC_MICM KC_F20 // F20 mutes the microphone in linux
 
+// Cancel oneshot with esc
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (keycode == KC_ESC && record->event.pressed) {
         bool rc = true;
@@ -66,9 +70,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // ├────────┼────────┼────────┼────────┼────────┼────────┤  ├────────┼────────┼────────┼────────┼────────┼────────┤
     KC_ESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,       KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
 // ├────────┼────────┼────────┼────────┼────────┼────────┤  ├────────┼────────┼────────┼────────┼────────┼────────┤
-    KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
+    KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, MY_RSFT,
 // └────────┴────────┴────────┼────────┼────────┼────────┤  ├────────┼────────┼────────┴────────┴────────┴────────┘
-                               OSM_CTL, LFT_ENT, OSM_ALT,    OSM_GUI, RGT_SPC, OSM_INT
+                               OSM_CTL, LEFT_L,  OSM_ALT,    OSM_GUI, RIGHT_L, OSM_INT
                            // └────────┴────────┴────────┘  └────────┴────────┴────────┘
   ),
   [_RIGHT] = LAYOUT_split_3x6_3(
@@ -90,7 +94,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // ├────────┼────────┼────────┼────────┼────────┼────────┤  ├────────┼────────┼────────┼────────┼────────┼────────┤
     _______, KC_DEL,  KC_RBRC, KC_RCBR, KC_RPRN, KC_PSCR,    XXXXXXX, KC_UNDS, KC_PLUS, XXXXXXX, XXXXXXX, _______,
 // └────────┴────────┴────────┼────────┼────────┼────────┤  ├────────┼────────┼────────┴────────┴────────┴────────┘
-                               _______, _______, _______,    _______, OSL_ADJ, KC_LGUI
+                               _______, _______, _______,    _______, OSL_ADJ, KC_ENT
                            // └────────┴────────┴────────┘  └────────┴────────┴────────┘
   ),
   [_ADJUST] = LAYOUT_split_3x6_3(
