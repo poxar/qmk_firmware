@@ -79,9 +79,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // ┌────────┬────────┬────────┬────────┬────────┬────────┐  ┌────────┬────────┬────────┬────────┬────────┬────────┐
     KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,       KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSLS,
 // ├────────┼────────┼────────┼────────┼────────┼────────┤  ├────────┼────────┼────────┼────────┼────────┼────────┤
-    _______, XXXXXXX, KC_MICM, KC_VOLD, KC_VOLU, KC_MUTE,    KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, OSL_LFT, KC_INS,
+    _______, QK_AREP, KC_MICM, KC_VOLD, KC_VOLU, KC_MUTE,    KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, OSL_LFT, KC_INS,
 // ├────────┼────────┼────────┼────────┼────────┼────────┤  ├────────┼────────┼────────┼────────┼────────┼────────┤
-    _______, XXXXXXX, XXXXXXX, KC_MPRV, KC_MNXT, KC_MPLY,    KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_PSCR, _______,
+    _______, QK_REP,  XXXXXXX, KC_MPRV, KC_MNXT, KC_MPLY,    KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_PSCR, _______,
 // └────────┴────────┴────────┼────────┼────────┼────────┤  ├────────┼────────┼────────┴────────┴────────┴────────┘
                                _______, OSL_ADJ, OSM_INT,    _______, _______, _______
                            // └────────┴────────┴────────┘  └────────┴────────┴────────┘
