@@ -24,12 +24,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define USB_POLLING_INTERVAL_MS 1
 
 #define TAPPING_TERM 150
-#define TAPPING_TERM_PER_KEY
-#define QUICK_TAP_TERM_PER_KEY
 
 #define ONESHOT_TAP_TOGGLE 2
-#define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD
-#define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
 
 #define USE_SERIAL_PD2
 #define EE_HANDS
