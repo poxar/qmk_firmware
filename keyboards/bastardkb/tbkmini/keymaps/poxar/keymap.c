@@ -59,6 +59,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
         return rc;
     }
+
     return true;
 }
 
@@ -72,7 +73,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // ├────────┼────────┼────────┼────────┼────────┼────────┤  ├────────┼────────┼────────┼────────┼────────┼────────┤
     KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, MY_RSFT,
 // └────────┴────────┴────────┼────────┼────────┼────────┤  ├────────┼────────┼────────┴────────┴────────┴────────┘
-                               OSM_CTL, LEFT_L,  OSM_ALT,    OSM_GUI, RIGHT_L, OSM_INT
+                               OSM_CTL, LEFT_L,  OSM_ALT,    KC_LGUI, RIGHT_L, OSM_INT
                            // └────────┴────────┴────────┘  └────────┴────────┴────────┘
   ),
   [_RIGHT] = LAYOUT_split_3x6_3(
