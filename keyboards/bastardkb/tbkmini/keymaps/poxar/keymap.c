@@ -224,9 +224,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // ┌────────┬────────┬────────┬────────┬────────┬────────┐  ┌────────┬────────┬────────┬────────┬────────┬────────┐
             XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, MA_BTAB,    MA_SRCH, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
         // ├────────┼────────┼────────┼────────┼────────┼────────┤  ├────────┼────────┼────────┼────────┼────────┼────────┤
-            XXXXXXX, XXXXXXX, MA_SGDH, XXXXXXX, XXXXXXX, XXXXXXX,    MA_BHIS, XXXXXXX, MA_WORD, MA_LINE, XXXXXXX, XXXXXXX,
+            XXXXXXX, XXXXXXX, MA_SGDH, XXXXXXX, MA_BYE,  XXXXXXX,    MA_BHIS, XXXXXXX, MA_WORD, MA_LINE, XXXXXXX, XXXXXXX,
         // ├────────┼────────┼────────┼────────┼────────┼────────┤  ├────────┼────────┼────────┼────────┼────────┼────────┤
-            XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, MA_BYE,     MA_NAME, MA_MAIL, XXXXXXX, MA_DOT,  MA_QUES, XXXXXXX,
+            XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    MA_NAME, MA_MAIL, XXXXXXX, MA_DOT,  MA_QUES, XXXXXXX,
         // └────────┴────────┴────────┼────────┼────────┼────────┤  ├────────┼────────┼────────┴────────┴────────┴────────┘
                                        DF_NOS,  _______, _______,    _______, _______, QK_BOOT
         //                            └────────┴────────┴────────┘  └────────┴────────┴────────┘
