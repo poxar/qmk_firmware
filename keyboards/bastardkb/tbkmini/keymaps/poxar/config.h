@@ -5,12 +5,7 @@
 #define TAPPING_TERM 150
 #define TAPPING_TERM_PER_KEY
 
-// Disable quick tap
-#define QUICK_TAP_TERM 0
-#define QUICK_TAP_TERM_PER_KEY
-
-// Allow for faster mod activation
-#define PERMISSIVE_HOLD_PER_KEY
+#define PERMISSIVE_HOLD
 
 #define ONESHOT_TAP_TOGGLE 2
 #define ONESHOT_TIMEOUT 0
